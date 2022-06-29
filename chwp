@@ -1,0 +1,15 @@
+#!/bin/bash
+dir=/home/marhearn/.local/share/wallpapers/numpapers
+currn="$(cat ~/.fehbgcurrent.txt)"
+indxn="$(ls $dir -1 | head -$c | tail -1)"
+totalc=$(ls $dir -1 | wc -l)
+intt=$(cat ~/.fehbgcurrent.txt)
+i=$(($intt+1))
+h="$dir/${i}.jpg"
+feh --bg-fill $h
+if [[ $i = 28 ]]; then
+	echo 0 > ~/.fehbgcurrent.txt && feh --bg-fill $dir/0.jpg
+else
+	echo $i > ~/.fehbgcurrent.txt
+fi
+
